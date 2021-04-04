@@ -1,0 +1,47 @@
+class DoublyLinkedList{
+  Node head,tail;
+  public static class Node{
+     int data;
+     Node next,previous;
+     public Node(int data){
+       this.data = data;
+       this.previous = null;
+       this.next = null;
+     }
+  }
+  
+  public void insert(int element){
+     Node node = new Node(element);
+     if(head == null){
+       head = node;
+       tail = node;
+     }
+     else{
+       tail.next = node;
+       node.previous = tail;
+       tail = node;
+     }
+  }
+  public void traverseForward(){
+    if(head != null){
+      Node temp = head;
+      while(temp!=null){
+        System.out.println(temp.data);
+        temp = temp.next;
+      }   
+    }
+    else
+      System.out.println("List is emplty");
+  }
+  public void traverseBackward(){
+    if(head != null){
+      Node temp = tail;
+      while(temp!=null){
+        System.out.println(temp.data);
+        temp = temp.previous;
+      }   
+    }
+    else
+      System.out.println("List is emplty");
+  }
+}
